@@ -13,6 +13,10 @@ const styles = StyleSheet.create({
         fontSize: 32,
         marginVertical: 30,
     },
+    subText: {
+        fontWeight: '600',
+        fontSize: 20,
+    },
     box: {
         borderRadius: 10,
         padding: 15,
@@ -42,10 +46,9 @@ const styles = StyleSheet.create({
     buttonContainer: {
         width: '100%',
         paddingHorizontal: 15,
+        paddingVertical: 13,
         backgroundColor: '#000',
-        borderRadius: 25,
-        height: 50,
-        marginVertical: 5,
+        borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -53,6 +56,14 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         color: '#fff',
+    },
+    outlinedBtn: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        padding: 5,
+        borderRadius: 50,
+        borderColor: 'black'
     },
 })
 

@@ -1,5 +1,5 @@
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Text, View } from 'react-native'
+import { Text } from 'react-native'
 import styles from "../../styles";
 
 const CustomButton = ({ title, onPress }) => {
@@ -10,4 +10,13 @@ const CustomButton = ({ title, onPress }) => {
     )
 }
 
-export default CustomButton
+const NormalButton = ({ title, onPress }) => {
+    return (
+        <TouchableOpacity style={[styles.buttonContainer, { paddingVertical: 8 }]} onPress={onPress}>
+            <Text style={styles.buttonText}>{title}</Text>
+        </TouchableOpacity>
+    )
+}
+
+
+export { CustomButton, NormalButton }
