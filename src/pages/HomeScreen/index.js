@@ -1,11 +1,9 @@
 // import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, FlatList, ActivityIndicator, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
-import { Card, CustomButton } from '../../components';
+import { Card } from '../../components';
 import { handleListVendorsAndProducts } from '../../api/vendors_products';
-import { logout } from '../../api/logout';
 import { getUserData } from '../../api/storage';
-import AuthContext from '../../context/AuthContext';
 import styles from '../../styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
@@ -19,16 +17,10 @@ function HomeScreen() {
     const [vendorsData, setVendorsData] = useState([]); // Isi dengan vendorsData yang ingin Anda paginasi
     const [productsData, setProductsData] = useState([]); // Isi dengan productsData yang ingin Anda paginasi
     const [isLoading, setIsLoading] = useState(true)
-    const { setIsLoggedIn } = useContext(AuthContext)
 
     const screenHeight = Dimensions.get('window').height;
     const flatListHeight = screenHeight / 3.5;
 
-    const handleLogout = async () => {
-        await logout().then(_ => {
-            setIsLoggedIn(false)
-        })
-    }
 
     const getUsername = async () => {
         try {
@@ -66,7 +58,7 @@ function HomeScreen() {
 
     const itemBuilder = ({ item, photo, isVendor }) => {
         return (
-            <Card onPress={() => navigation.navigate(`Detail ${isVendor ? 'Merchant' : 'Produk'}`, {id: item.id})}>
+            <Card onPress={() => navigation.navigate(`Detail ${isVendor ? 'Merchant' : 'Produk'}`, { id: item.id })}>
                 <View style={{ justifyContent: 'space-evenly', alignItems: 'center', }}>
                     <Text style={{ color: '#555', fontWeight: 'bold' }}>{item.name}</Text>
                     <Image source={{ uri: photo, }} style={{
@@ -101,7 +93,6 @@ function HomeScreen() {
         <ScrollView style={{ backgroundColor: '#fff', }}>
             <View style={{ marginVertical: 25, marginHorizontal: 20 }}>
                 <Text style={{ color: 'black', alignSelf: 'center', marginVertical: 20, }}>Welcome, {username}</Text>
-                <CustomButton onPress={handleLogout} title='Logout' />
             </View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginHorizontal: 15 }}>
                 <Text style={[styles.text, { fontWeight: 'bold' }]}>Merchant Pilihan :</Text>
@@ -114,7 +105,7 @@ function HomeScreen() {
                 contentContainerStyle={{ padding: 10 }}
                 data={vendorsData}
                 horizontal={true}
-                renderItem={({ item }) => itemBuilder({ item, photo: item.vendorsPictuers.path, isVendor: true })}
+                renderItem={({ item }) => itemBuilder({ item, photo: item.vendorsPictures.path, isVendor: true })}
                 keyExtractor={(item) => item.id.toString()}
                 ListFooterComponent={renderFooter}
             />

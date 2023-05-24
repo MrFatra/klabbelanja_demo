@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer'
 import { createStackNavigator } from '@react-navigation/stack';
@@ -27,12 +27,26 @@ const DrawerToogle = () => {
 
 const Drawer = () => {
   const navigation = useNavigation()
+  const { setIsLoggedIn } = useContext(AuthContext)
+
+  const handleLogout = async () => {
+    await logout().then(_ => {
+      setIsLoggedIn(false)
+    })
+  }
+
   return (
     <DrawerContentScrollView>
-      <TouchableOpacity onPress={() => navigation.navigate('Dashboard')} style={{ backgroundColor: '#0000001A', paddingVertical: 15, marginHorizontal: 5, borderRadius: 10 }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginHorizontal: 15 }}>
-          <IonIcon name="home" size={24} color={'black'} style={{marginRight: 20}}/>
+      <TouchableOpacity onPress={() => navigation.navigate('Dashboard')} style={{ backgroundColor: '#00000009', paddingVertical: 15, marginHorizontal: 5, borderRadius: 10, marginVertical: 5, borderWidth: 0.7, borderColor: '#0000002A'}}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginHorizontal: 15, }}>
+          <IonIcon name="home-outline" size={24} color={'black'} style={{ marginRight: 20 }} />
           <Text style={{ color: 'black', fontWeight: 'bold' }}>Home</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleLogout} style={{ backgroundColor: '#00000009', paddingVertical: 15, marginHorizontal: 5, borderRadius: 10, borderWidth: 0.7, borderColor: '#0000002A' }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginHorizontal: 15 }}>
+          <IonIcon name="log-out-outline" size={24} color={'black'} style={{ marginRight: 20 }} />
+          <Text style={{ color: 'black', fontWeight: 'bold' }}>Logout</Text>
         </View>
       </TouchableOpacity>
     </DrawerContentScrollView >

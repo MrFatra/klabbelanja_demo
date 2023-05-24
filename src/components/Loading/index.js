@@ -11,7 +11,7 @@ const Loading = () => {
 
 const thisStyles = StyleSheet.create({
     footerContainer: {
-        flexDirection: 'row',
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         paddingVertical: 16,

@@ -43,7 +43,7 @@ function ViewAllProducts() {
 
 
     const itemBuilder = ({ item }) => (
-        <TouchableOpacity key={item.id} activeOpacity={0.9}
+        <TouchableOpacity key={item.id} activeOpacity={0.9} 
             style={{
                 borderRadius: 10,
                 backgroundColor: 'white',
