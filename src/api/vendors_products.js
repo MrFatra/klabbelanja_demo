@@ -55,7 +55,30 @@ export const handleListAllVendors = async () => {
     }
 }
 
-export const handleDetailVendors = async (id) => {
+export const handleDetailVendor = async (id) => {
+    try {
+        const response = await fetch(`https://0cbd-158-140-182-89.ngrok-free.app/api/v1/vendors/details?vendors_id=${id}`).then(async res => await res.json())
+
+        if (response.status === false) {
+            return { status: false, message: 'Terjadi Kesalahan' }
+        } else {
+            return {
+                status: true,
+                name: response.data.name,
+                address: response.data.vendorsDetails.address,
+                notes: response.data.vendorsDetails.notes,
+                logo: response.data.vendorsPictures.path,
+                photo: response.data.vendorsPictures.path_detail,
+                electronics: response.data.products.electronic, 
+                physiques: response.data.products.physique
+            }
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export const handleDetailProduct = async (id) => {
     try {
         const response = await fetch(`https://0cbd-158-140-182-89.ngrok-free.app/api/v1/vendors/details?vendors_id=${id}`).then(async res => await res.json())
 

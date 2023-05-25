@@ -7,6 +7,7 @@ import { DetailProduct, DetailVendor, HomeScreen, LoginScreen, RegisterScreen, S
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getAccessToken } from './src/api/storage';
 import AuthContext from './src/context/AuthContext';
+import { logout } from './src/api/logout'
 import IonIcon from 'react-native-vector-icons/Ionicons'
 import { TouchableWithoutFeedback, Text, View, TouchableOpacity } from 'react-native';
 

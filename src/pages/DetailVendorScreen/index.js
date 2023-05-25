@@ -1,7 +1,7 @@
 import { useRoute } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
-import { handleDetailVendors } from "../../api/vendors_products";
+import { handleDetailVendor } from "../../api/vendors_products";
 import Loading from "../../components/Loading";
 import { NormalButton } from "../../components";
 import styles from "../../styles";
@@ -20,14 +20,9 @@ function DetailVendor() {
         logo: ''
     })
 
-    useEffect(() => {
-        console.log(data.products);
-    }, [data.products]);
-
     const showData = async () => {
         try {
-            await handleDetailVendors(id).then(res => {
-                // if (res.electronics.length == 0) {
+            await handleDetailVendor(id).then(res => {
                 setData({
                     desc: res.notes,
                     products: [...res.physiques, ...res.electronics],
@@ -36,18 +31,7 @@ function DetailVendor() {
                     photo: res.photo,
                     logo: res.logo
                 })
-                // } else if (res.physiques.length == 0) {
-                //     setData({
-                //         desc: res.notes,
-                //         products: [...res.electronics],
-                //         name: res.name,
-                //         address: res.address,
-                //         photo: res.photo,
-                //         logo: res.logo
-                //     })
-                // }
             })
-            console.log(data.products);
         } catch (error) {
             console.error(error);
         } finally {
