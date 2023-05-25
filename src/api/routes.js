@@ -3,3 +3,4 @@ export const API_URL_LOGIN = 'https://api-sandbox.klabbelanja.id/api/v1/auth/log
 export const API_LIST_ALL_PRODUCTS = 'https://0cbd-158-140-182-89.ngrok-free.app/api/v1/products/views-more?size=100&page=1'
 export const API_LIST_ALL_VENDORS = 'https://0cbd-158-140-182-89.ngrok-free.app/api/v1/vendors/views-more?size=100&page=1'
 export const API_LIST_VENDORS_AND_PRODUCTS = 'https://0cbd-158-140-182-89.ngrok-free.app/api/v1/marketings/booster'
+export const API_GET_BANNERS = 'https://0cbd-158-140-182-89.ngrok-free.app/api/v1/marketings/banners'

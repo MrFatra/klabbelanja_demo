@@ -1,4 +1,4 @@
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { handleDetailVendor } from "../../api/vendors_products";
@@ -8,6 +8,7 @@ import styles from "../../styles";
 import IonIcon from 'react-native-vector-icons/Ionicons'
 
 function DetailVendor() {
+    const navigation = useNavigation()
     const route = useRoute()
     const id = route.params.id
     const [isLoading, setIsLoading] = useState(true)
@@ -41,6 +42,7 @@ function DetailVendor() {
 
     const renderItem = ({ item }) => (
         <TouchableOpacity key={item.id} activeOpacity={0.9}
+        onPress={() => navigation.navigate('Detail Produk', {id: item.id, vendorId: id})}
             style={{
                 borderRadius: 10,
                 backgroundColor: 'white',

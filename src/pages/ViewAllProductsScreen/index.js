@@ -1,9 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 import { View, Text, Image, FlatList, ActivityIndicator, TouchableOpacity } from "react-native";
 import { handleListAllProducts } from "../../api/vendors_products";
 import { NormalButton } from "../../components";
 
 function ViewAllProducts() {
+    const navigation = useNavigation()
 
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -43,7 +45,7 @@ function ViewAllProducts() {
 
 
     const itemBuilder = ({ item }) => (
-        <TouchableOpacity key={item.id} activeOpacity={0.9} 
+        <TouchableOpacity key={item.id} activeOpacity={0.9} onPress={() => navigation.navigate('Detail Produk', {id: item.id, vendorId: item.vendors_id})}
             style={{
                 borderRadius: 10,
                 backgroundColor: 'white',

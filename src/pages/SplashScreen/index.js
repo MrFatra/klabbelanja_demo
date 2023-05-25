@@ -6,7 +6,7 @@ function SplashScreen() {
 
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: "center", backgroundColor: '#fff' }}>
-            <Text style={[styles.headerText, styles.text, { paddingHorizontal: 15 }]}>Hello There!</Text>
+            <Text style={[styles.headerText, styles.text, { paddingHorizontal: 15 }]}>Klab Belanja</Text>
         </View>
     );
 }
