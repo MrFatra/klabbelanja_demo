@@ -79,8 +79,6 @@ export const handleDetailVendor = async (id) => {
 }
 
 export const handleDetailProduct = async (id, vendorId) => {
-    console.log('id : ', id);
-    console.log('vendorId : ', vendorId);
     try {
         const response = await fetch(`https://0cbd-158-140-182-89.ngrok-free.app/api/v1/products/details?vendors_id=${vendorId}&products_id=${id}`).then(async res => await res.json())
 

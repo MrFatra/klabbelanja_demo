@@ -125,7 +125,6 @@ function HomeScreen() {
                             autoPlayInterval={4300}
                             // onSnapToItem={}
                             renderItem={({ item }) => {
-                                // console.log('item.path: ', item.path)
                                 return (
                                     <View
                                         style={{

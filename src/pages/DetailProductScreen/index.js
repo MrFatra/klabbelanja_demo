@@ -66,61 +66,8 @@ function DetailProduct() {
     useEffect(() => {
         showData().then(res => {
             setPrice(parseInt(res.price) * quantity)
-            console.log(data)
         })
     }, [])
-
-    // const renderItem = ({ item }) => (
-    //     <TouchableOpacity key={item.id} activeOpacity={0.9}
-    //         style={{
-    //             borderRadius: 10,
-    //             backgroundColor: 'white',
-    //             elevation: 5,
-    //             shadowColor: 'black',
-    //             shadowOpacity: 0.2,
-    //             shadowOffset: { width: 0, height: 2 },
-    //             shadowRadius: 6,
-    //             marginVertical: 7,
-    //             padding: 10,
-    //             flex: 1
-    //         }}>
-    //         <View style={{ flex: 1, }}>
-    //             {
-    //                 item.productsPictures.path
-    //                     ? (
-    //                         <Image source={{ uri: item.productsPictures.path, }} style={{
-    //                             width: '100%',
-    //                             borderRadius: 5,
-    //                             height: 100,
-    //                             resizeMode: 'contain',
-    //                             marginBottom: 10,
-    //                         }} />
-    //                     )
-    //                     : (
-    //                         <Text style={styles.text}>Gambar tidak tersedia.</Text>
-    //                     )
-    //             }
-    //             <View style={{ flexDirection: 'row', justifyContent: 'space-between', flexWrap: "wrap" }}>
-    //                 <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 16 }}>{item.name}</Text>
-    //                 <View style={{
-    //                     justifyContent: 'center',
-    //                     backgroundColor: item.type == 1 ? '#90EE90' : '#ADD8E6',
-    //                     padding: 4,
-    //                     borderRadius: 5,
-    //                 }}>
-    //                     <Text style={{ color: 'white' }}>{item.type == 1 ? 'Fisik' : 'Digital'}</Text>
-    //                 </View>
-    //             </View>
-    //             <View style={{ flexDirection: 'row', marginVertical: 9, flexWrap: "wrap" }}>
-    //                 <Text style={{ color: 'black', marginRight: 5, fontSize: 12, }}>-Rp. {item.productsPrice.discount_amount}</Text>
-    //                 <Text style={{ color: 'black', fontSize: 12, textDecorationLine: 'line-through' }}>Rp. {item.productsPrice.price}</Text>
-    //             </View>
-    //             <Text style={{ color: 'black', marginBottom: 15, fontWeight: 'bold', fontSize: 18 }}>Rp. {item.productsPrice.hpp}</Text>
-    //             <NormalButton title={'Beli'}></NormalButton>
-    //         </View>
-    //     </TouchableOpacity>
-    //     // * 2 render
-    // )
 
     return isLoading ? <Loading /> : (
         // ! LAYAR

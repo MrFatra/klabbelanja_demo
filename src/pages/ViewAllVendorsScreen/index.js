@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
-import { View, Text, Image, FlatList, ActivityIndicator, TouchableOpacity } from "react-native";
+import { View, Text, Image, FlatList, TouchableOpacity } from "react-native";
 import { handleListAllVendors } from "../../api/vendors_products";
+import Loading from "../../components/Loading";
 import styles from "../../styles";
 
 function ViewAllVendors() {
@@ -34,16 +35,6 @@ function ViewAllVendors() {
         </View>
     )
 
-    const Load = () => {
-        return (
-            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                <ActivityIndicator color="gray" />
-                <Text style={{ color: '#555' }}>Loading...</Text>
-            </View>
-        );
-    };
-
-
     const itemBuilder = ({ item }) => (
         <TouchableOpacity key={item.id} activeOpacity={0.9} onPress={() => navigation.navigate('Detail Merchant', { id: item.id }) }
             style={{
@@ -71,7 +62,7 @@ function ViewAllVendors() {
         </TouchableOpacity>
     )
 
-    return isLoading ? <Load /> : (
+    return isLoading ? <Loading /> : (
         <FlatList
             numColumns={2}
             data={data}

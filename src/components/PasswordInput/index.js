@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
-// import { Ionicons } from '@expo/vector-icons';
-import styles from '../../styles/';
+import IonIcon from 'react-native-vector-icons/Ionicons'
 
-const PasswordInput = ({password, setPassword, placeholder = 'Password'}) => {
+const PasswordInput = ({ password, setPassword, placeholder = 'Password' }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -20,30 +19,41 @@ const PasswordInput = ({password, setPassword, placeholder = 'Password'}) => {
         onChangeText={setPassword}
         placeholderTextColor='#555'
       />
-      {/* <Ionicons
+      <IonIcon
         style={style.icon}
+        color={'black'}
         name={showPassword ? 'eye-off-outline' : 'eye-outline'}
         size={20}
         onPress={togglePasswordVisibility}
-      /> */}
+      />
     </View>
   );
 };
 
 const style = StyleSheet.create({
   inputContainer: {
+    width: '100%',
+    borderWidth: 1,
+    borderColor: '#555',
+    backgroundColor: '#f2f2f2',
+    height: 50,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: 50,
+    marginVertical: 10,
     flexDirection: 'row',
     alignItems: 'center',
-},
-input: {
-    width: '100%',
-    paddingVertical: 10,
-    ...styles.input,
+  },
+  input: {
+    flex: 1,
+    color: 'black',
+    marginLeft: 15,
   },
   icon: {
-    position: 'relative',
-    right: 50,
-    marginLeft: 10,
+    flex: 1,
+    position: 'absolute',
+    right: 10,
+    padding: 10,
     color: '#888',
   },
 });

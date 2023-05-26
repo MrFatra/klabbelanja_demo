@@ -41,28 +41,26 @@ const RegisterScreen = () => {
   return (
     <TouchableWithoutFeedback onPress={handleOutsideTouch}>
       <View style={{
-        flexDirection: 'row', flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 50
+        backgroundColor: '#fff', flexDirection: 'row', flex: 1, alignItems: 'center', paddingHorizontal: 30,
       }}>
         {/* ROW */}
-        <View>
-          <View style={{ alignItems: 'flex-start' }}>
-            <Text style={[styles.text, styles.headerText]}>Register</Text>
-            <View style={styles.box}>
-              <View style={styles.inputContainer}>
-                <TextInput
-                  style={styles.input}
-                  placeholder="Email/Nomor Telepon"
-                  value={emailOrPhone}
-                  onChangeText={setEmailOrPhone}
-                  placeholderTextColor='#555'
-                />
-                <PasswordInput password={password} setPassword={setPassword} placeholder='Password' />
-                <PasswordInput password={passwordVerify} setPassword={setPasswordVerify} placeholder='Verifikasi Password' />
-              </View>
-              {
-                isLoading ? <ActivityIndicator></ActivityIndicator> : <CustomButton title="Register" onPress={register} />
-              }
+        <View style={{ justifyContent: 'center', flex: 1 }}>
+          <Text style={[styles.text, styles.headerText]}>Register</Text>
+          <View style={styles.box}>
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={styles.input}
+                placeholder="Email/Nomor Telepon"
+                value={emailOrPhone}
+                onChangeText={setEmailOrPhone}
+                placeholderTextColor='#555'
+              />
+              <PasswordInput password={password} setPassword={setPassword} placeholder='Password' />
+              <PasswordInput password={passwordVerify} setPassword={setPasswordVerify} placeholder='Verifikasi Password' />
             </View>
+            {
+              isLoading ? <ActivityIndicator></ActivityIndicator> : <CustomButton title="Register" onPress={register} />
+            }
           </View>
           <View style={{ flexDirection: 'row', marginTop: 40, }}>
             <Text style={styles.text}>Sudah punya akun? </Text>

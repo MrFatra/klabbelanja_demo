@@ -31,9 +31,8 @@ const LoginScreen = () => {
             <View style={{
                 flex: 1,
                 backgroundColor: '#fff',
-                alignItems: 'center',
                 justifyContent: 'center',
-                paddingHorizontal: 50,
+                paddingHorizontal: 30
             }}>
                 <View style={{ alignItems: 'flex-start' }}>
                     <Text style={[styles.headerText, styles.text]}>Login</Text>
